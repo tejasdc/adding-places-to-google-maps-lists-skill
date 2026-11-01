@@ -1,13 +1,13 @@
 ---
 name: adding-places-to-google-maps-lists
-description: Adds places to native Google Maps Saved Lists with notes using local browser automation. Use when the user asks to create or update a Google Maps list, save recommended places, process Maps links, HTML place lists, videos, transcripts, or recommendation roundups into a list that appears in the regular Google Maps app.
+description: Adds places to native Google Maps Saved Lists with notes using isolated browser automation on the server first. Use when the user asks to create or update a Google Maps list, save recommended places, process Maps links, HTML place lists, videos, transcripts, or recommendation roundups into a list that appears in the regular Google Maps app, or asks why an agent is using his Chrome on the Mac for Maps.
 ---
 
 # Adding Places To Google Maps Lists
 
 ## Quick Start
 
-Use the user's local signed-in browser to add places to a native Google Maps Saved List. Do not use Google My Maps unless the user explicitly asks for a custom map instead of a Saved List.
+Use an isolated server browser to add places to a native Google Maps Saved List. Do not use Google My Maps unless the user explicitly asks for a custom map instead of a Saved List.
 
 Default flow:
 
@@ -55,10 +55,14 @@ The manifest is an audit checklist, not a Google Maps import format. If a clean 
 
 ## Browser Requirements
 
-Use the local laptop browser flow by default.
+Start with the server browser. Read the Google Maps website runbook and establish a server sign-in
+through the normal account route. If the server genuinely cannot complete the job, record the
+server attempts and observed reason in the site runbook and request an isolated background Mac
+browser through the Mac owner. The fallback is automatic when admitted; it does not require
+Tejas's per-use approval. An unrelated Mac file or app need does not authorize browser access.
 
-- Prefer the user's current signed-in Chrome browser automation tools when available.
-- Do not set up a remote-box browser profile unless the user explicitly asks.
+- Never attach to his current Chrome, reuse its profile, or take desktop focus.
+- Keep an isolated browser profile on the machine that actually runs the job.
 - Do not copy Google account cookies between machines.
 - Stop if Google asks for login, two-factor authentication, CAPTCHA, or new permissions.
 - Let the user complete security prompts manually; never attempt to bypass them.
