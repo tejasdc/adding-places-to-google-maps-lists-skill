@@ -55,8 +55,13 @@ The manifest is an audit checklist, not a Google Maps import format. If a clean 
 
 ## Browser Requirements
 
-Start with the server browser. Read the Google Maps website runbook and establish a server sign-in
-through the normal account route. If the server genuinely cannot complete the job, record the
+Start with the server browser. Read the Google Maps website runbook
+(`website-runbooks` skill, `sites/google.com.md`). Verified 2026-11-04: the server's always-running
+ChatGPT Chrome (CDP `127.0.0.1:9333`) has Chrome's own Google sign-in to the account that owns his
+Maps lists. Use it through the scripts in life-logistics `tools/google-maps/` (`maps-save-place.mjs`,
+`maps-save-manifest.py`, `maps-list-notes.mjs`, `maps-tab.mjs`); they open one Maps tab of their
+own and never touch the ChatGPT tabs. Steps: life-logistics `runbooks/google-maps-saved-lists.md`.
+No Mac, phone or manual step was needed. If the server genuinely cannot complete the job, record the
 server attempts and observed reason in the site runbook and request an isolated background Mac
 browser through the Mac owner. The fallback is automatic when admitted; it does not require
 Tejas's per-use approval. An unrelated Mac file or app need does not authorize browser access.
