@@ -1,0 +1,24 @@
+{
+  "_about": "What each kind of Google Maps list must carry. maps-list.mjs refuses a manifest whose places lack a required field, and builds each saved place's Maps note from note_lines. Add a kind here rather than special-casing it in the script.",
+  "products": {
+    "use_for": "Shops you go to for specific things to buy or try on: bags, stationery, clothes, gear.",
+    "place_requires": ["why", "products"],
+    "product_requires": ["name", "url", "price", "image"],
+    "research_list": true,
+    "note_lines": ["why", "products"]
+  },
+  "food": {
+    "use_for": "Restaurants, cafes, bakeries, bars.",
+    "place_requires": ["why", "order"],
+    "optional": ["price_range", "book", "link"],
+    "research_list": false,
+    "note_lines": ["why", "order", "price_range", "book", "link"]
+  },
+  "places": {
+    "use_for": "Anything else worth a visit: sights, parks, galleries, shops browsed for the shop itself.",
+    "place_requires": ["why"],
+    "optional": ["tip", "link"],
+    "research_list": false,
+    "note_lines": ["why", "tip", "link"]
+  }
+}
