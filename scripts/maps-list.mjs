@@ -101,6 +101,8 @@ async function mirrorToResearchList(manifest) {
   const name = manifest.research_list_name ?? manifest.list;
   const created = await thinkering('POST', '/lists/research', {name, mapsList: manifest.list, emoji: manifest.emoji});
   const listId = created.listId ?? created.id;
+  // POST /lists/research sets the emoji only when it creates the list; a list made earlier needs this.
+  await thinkering('POST', '/lists/emoji', {list: listId, emoji: manifest.emoji});
   const placeIds = new Map();
   for (const place of manifest.places) for (const product of place.products ?? []) {
     const result = await thinkering('POST', '/lists/research/options', {
